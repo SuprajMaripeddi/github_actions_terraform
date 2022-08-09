@@ -9,15 +9,17 @@ jobs:
     name: "Runs Terraform fmt"
     runs-on: ubuntu-latest
     env:
-        # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # TF_ACTION_WORKING_DIR: 'terraform'
         AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     steps:
 
     - name: Checkout Repo
       uses: actions/checkout@v1
-      
+
+    - uses: hashicorp/setup-terraform@v2
+      with:
+        terraform_wrapper: true
+
     - name: Terraform Init
       uses: hashicorp/terraform-github-actions/init@v0.4.0
 
@@ -26,11 +28,15 @@ jobs:
       uses: hashicorp/terraform-github-actions/validate@v0.3.7
 
     - name: Terraform format check
-      id: validate
+      id: fmt
       uses: hashicorp/terraform-github-actions/fmt@v0.3.7
 
     - name: Terraform plan
+      id: plan
       uses: hashicorp/terraform-github-actions/apply@v0.4.0
+    - run: echo ${{ steps.plan.outputs.stdout }}
+    - run: echo ${{ steps.plan.outputs.stderr }}
+    - run: echo ${{ steps.plan.outputs.exitcode }}
 
     - name: Terraform Apply
       uses: hashicorp/terraform-github-actions/apply@v0.4.0
