@@ -1,14 +1,19 @@
-name: Deploy Infrastructure
+name: "Terraform Plan"
 
 on:
   push:
     branches:
-      - main
+      - feature
 
 jobs:
-  tf_fmt:
-    name: Deploy Site
+  terraform_fmt:
+    name: "Runs Terraform fmt"
     runs-on: ubuntu-latest
+    env:
+        # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # TF_ACTION_WORKING_DIR: 'terraform'
+        AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     steps:
 
     - name: Checkout Repo
@@ -16,28 +21,24 @@ jobs:
 
     - name: Terraform Init
       uses: hashicorp/terraform-github-actions/init@v0.4.0
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        TF_ACTION_WORKING_DIR: 'terraform'
-        AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      
 
-    - name: Terraform Validate
-      uses: hashicorp/terraform-github-actions/validate@v0.3.7
+    # - name: Terraform Validate
+    #   uses: hashicorp/terraform-github-actions/validate@v0.3.7
 
-    - name: Terraform Apply
-      uses: hashicorp/terraform-github-actions/apply@v0.4.0
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        TF_ACTION_WORKING_DIR: 'terraform'
-        AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    # - name: Terraform Apply
+    #   uses: hashicorp/terraform-github-actions/apply@v0.4.0
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #     TF_ACTION_WORKING_DIR: 'terraform'
+    #     AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
+    #     AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-    - name: Sync S3
-      uses: jakejarvis/s3-sync-action@master
-      env:
-        SOURCE_DIR: './src'
-        AWS_REGION: 'us-east-1'
-        AWS_S3_BUCKET: '[BUCKET_NAME_HERE]'
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    # - name: Sync S3
+    #   uses: jakejarvis/s3-sync-action@master
+    #   env:
+    #     SOURCE_DIR: './src'
+    #     AWS_REGION: 'us-east-1'
+    #     AWS_S3_BUCKET: '[BUCKET_NAME_HERE]'
+    #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
