@@ -30,6 +30,8 @@ jobs:
     - name: Terraform format check
       id: fmt
       uses: hashicorp/terraform-github-actions/fmt@v0.3.7
+      continue-on-error: true
+
 
     - name: Terraform plan
       id: plan
