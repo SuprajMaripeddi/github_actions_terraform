@@ -34,6 +34,8 @@ jobs:
 
     - name: Terraform plan
       uses: hashicorp/terraform-github-actions/plan@v0.4.0
+      continue-on-error: true
+
    
     - name: Terraform Apply
       uses: hashicorp/terraform-github-actions/apply@v0.4.0
