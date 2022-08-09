@@ -1,9 +1,10 @@
 name: "Terraform Plan"
+# on:
+#   - pull_request
 on:
-  - pull_request
-  # push:
-  #   branches:
-  #     - feature
+  push:
+    branches:
+      - feature
 
 jobs:
   terraform_fmt:
