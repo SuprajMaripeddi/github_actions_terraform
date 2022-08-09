@@ -2,7 +2,7 @@ name: "Terraform Plan"
 on:
   push:
     branches:
-      - main
+      - feature
 
 jobs:
   terraform_fmt:
