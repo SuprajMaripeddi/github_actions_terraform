@@ -30,6 +30,6 @@ jobs:
       continue-on-error: true
 
     - name: Terraform Apply
-      uses: hashicorp/terraform-github-actions/apply@v0.4.0
+      uses: hashicorp/terraform-github-actions/destroy@v0.4.0
       with:
         args: '-var="bucket_name=test-supraj-githubactions"'
