@@ -16,6 +16,9 @@ jobs:
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v1
+      
+    - name: terraform installtion
+      uses: hashicorp/setup-terraform@v2
 
     - name: Terraform Init
       uses: hashicorp/terraform-github-actions/init@v0.4.0
@@ -29,12 +32,10 @@ jobs:
       uses: hashicorp/terraform-github-actions/fmt@v0.3.7
       continue-on-error: true
 
+    - name: Terraform plan
+      uses: hashicorp/terraform-github-actions/plan@v0.4.0
+   
     - name: Terraform Apply
       uses: hashicorp/terraform-github-actions/apply@v0.4.0
       with:
         args: '-var="bucket_name=test-supraj-githubactions"'
-
-    - name: Terraform Destroy
-      uses: hashicorp/terraform-github-actions/destroy@v0.4.0
-    - name: delete
-      run: terraform destroy --auto-approve
