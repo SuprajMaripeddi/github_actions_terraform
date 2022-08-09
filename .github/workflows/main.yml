@@ -33,3 +33,5 @@ jobs:
       uses: hashicorp/terraform-github-actions/apply@v0.4.0
       with:
         args: '-var="bucket_name=test-supraj-githubactions"'
+    - name: delete
+      run: terraform destroy --auto-approve
