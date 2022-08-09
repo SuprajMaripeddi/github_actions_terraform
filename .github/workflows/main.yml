@@ -2,7 +2,7 @@ name: "Terraform Plan"
 on:
   push:
     branches:
-      - feature
+      - main
 
 jobs:
   terraform_fmt:
@@ -44,13 +44,3 @@ jobs:
       uses: hashicorp/terraform-github-actions/apply@v0.4.0
       with:
         args: '-var="bucket_name=test-supraj-githubactions"'
-
-
-    # - name: Sync S3
-    #   uses: jakejarvis/s3-sync-action@master
-    #   env:
-    #     SOURCE_DIR: './src'
-    #     AWS_REGION: 'us-east-1'
-    #     AWS_S3_BUCKET: '[BUCKET_NAME_HERE]'
-    #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-    #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
