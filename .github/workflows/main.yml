@@ -20,24 +20,24 @@ jobs:
     - name: terraform installtion
       uses: hashicorp/setup-terraform@v2
 
-    - name: Terraform Init
-      uses: hashicorp/terraform-github-actions/init@v0.4.0
+#     - name: Terraform Init
+#       uses: hashicorp/terraform-github-actions/init@v0.4.0
 
-    - name: Terraform Validate
-      id: validate
-      uses: hashicorp/terraform-github-actions/validate@v0.3.7
+#     - name: Terraform Validate
+#       id: validate
+#       uses: hashicorp/terraform-github-actions/validate@v0.3.7
 
-    - name: Terraform format check
-      id: fmt
-      uses: hashicorp/terraform-github-actions/fmt@v0.3.7
-      continue-on-error: true
+#     - name: Terraform format check
+#       id: fmt
+#       uses: hashicorp/terraform-github-actions/fmt@v0.3.7
+#       continue-on-error: true
 
-    - name: Terraform plan
-      uses: hashicorp/terraform-github-actions/plan@v0.4.0
-      continue-on-error: true
+#     - name: Terraform plan
+#       uses: hashicorp/terraform-github-actions/plan@v0.4.0
+#       continue-on-error: true
 
    
-    - name: Terraform Apply
-      uses: hashicorp/terraform-github-actions/apply@v0.4.0
-      with:
-        args: '-var="bucket_name=test-supraj-githubactions"'
+#     - name: Terraform Apply
+#       uses: hashicorp/terraform-github-actions/apply@v0.4.0
+#       with:
+#         args: '-var="bucket_name=test-supraj-githubactions"'
