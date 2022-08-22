@@ -1,5 +1,5 @@
 ARG JDK_VERSION=12
-FROM openjdk
+FROM adoptopenjdk/openjdk12
 ARG SERVICE_PORT="8080"
 ENV WORKDIR=/workspaces/tlx-ui
 RUN echo "supraj"
