@@ -3,7 +3,7 @@ name: Flutter_Web_On_Demand
 on:
   workflow_dispatch:
     inputs:
-      name:
+      names:
         type: choice
         description: Who to greet
         options: 
