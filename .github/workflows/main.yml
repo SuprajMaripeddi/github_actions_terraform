@@ -27,7 +27,7 @@ jobs:
       - name: Any Name Bash Test Step
         shell: bash
         run: |
-          echo "Now your excuting terraform plan on this resource'${{ github.event.inputs.names }}'
+          echo "Now your excuting terraform plan on this resource'${{ github.event.inputs.names }}'"
           echo "##########"
           #echo '${{ github.event.inputs.publish_artifacts }}'
           #echo '${{ github.event.inputs.name }}'
