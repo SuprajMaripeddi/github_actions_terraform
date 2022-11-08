@@ -7,8 +7,8 @@ on:
         type: choice
         description: Who to greet
         options: 
-        - monalisa
-        - cschleiden
+        - aws_ec2
+        - aws_s3
       message:
         required: true
       flutter_version:
@@ -27,7 +27,7 @@ jobs:
       - name: Any Name Bash Test Step
         shell: bash
         run: |
-          echo '${{ github.event.inputs.flutter_version }}'
-          echo "Hello smaple"
-          echo '${{ github.event.inputs.publish_artifacts }}'
-          echo '${{ github.event.inputs.name }}'
+          echo "Now your excuting terraform plan on this resource'${{ github.event.inputs.names }}'
+          echo "##########"
+          #echo '${{ github.event.inputs.publish_artifacts }}'
+          #echo '${{ github.event.inputs.name }}'
