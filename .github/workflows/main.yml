@@ -3,6 +3,14 @@ name: Flutter_Web_On_Demand
 on:
   workflow_dispatch:
     inputs:
+      name:
+        type: choice
+        description: Who to greet
+        options: 
+        - monalisa
+        - cschleiden
+      message:
+        required: true
       flutter_version:
         description: 'Framework version'
         required: true
@@ -22,3 +30,4 @@ jobs:
           echo '${{ github.event.inputs.flutter_version }}'
           echo "Hello smaple"
           echo '${{ github.event.inputs.publish_artifacts }}'
+          echo '${{ github.event.inputs.name }}'
