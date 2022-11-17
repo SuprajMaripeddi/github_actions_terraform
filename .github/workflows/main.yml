@@ -37,8 +37,7 @@ name: "terraform-deploy of iam role with policy by using meta argument"
 on:
   push:
     branches:
-      - main
-  pull_request:
+      - iam_role
 
 jobs:
   IAM-creation-with-terraform:
