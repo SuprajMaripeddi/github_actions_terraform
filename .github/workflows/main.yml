@@ -45,8 +45,7 @@ on:
         description: terraform resources
         options: 
         - aws_iam_role.test_role
-        - aws_s3
-        - aws_ec2
+        - aws_iam_role_policy_attachment.test-attach
       message:
         required: true
 #       flutter_version:
