@@ -1,33 +1,69 @@
-name: Flutter_Web_On_Demand
+# name: Flutter_Web_On_Demand
+
+# on:
+#   workflow_dispatch:
+#     inputs:
+#       names:
+#         type: choice
+#         description: Who to greet
+#         options: 
+#         - aws_ec2
+#         - aws_s3
+#       message:
+#         required: true
+#       flutter_version:
+#         description: 'Framework version'
+#         required: true
+#         default: '2.5.3'
+#       publish_artifacts:
+#         description: 'Publish artifacts'
+#         required: true
+#         default: 'true'
+
+# jobs:
+#   build_web:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Any Name Bash Test Step
+#         shell: bash
+#         run: |
+#           echo "Now your excuting terraform plan on this resource'${{ github.event.inputs.names }}'"
+#           echo "##########"
+#           #echo '${{ github.event.inputs.publish_artifacts }}'
+#           #echo '${{ github.event.inputs.name }}'
+
+name: "terraform-deploy of iam role with policy by using meta argument"
 
 on:
-  workflow_dispatch:
-    inputs:
-      names:
-        type: choice
-        description: Who to greet
-        options: 
-        - aws_ec2
-        - aws_s3
-      message:
-        required: true
-      flutter_version:
-        description: 'Framework version'
-        required: true
-        default: '2.5.3'
-      publish_artifacts:
-        description: 'Publish artifacts'
-        required: true
-        default: 'true'
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
-  build_web:
+  IAM-creation-with-terraform:
+    name: "TerraformIAM"
     runs-on: ubuntu-latest
+    env:
+         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+         AWS_DEFAULT_REGION: us-east-1
+
     steps:
-      - name: Any Name Bash Test Step
-        shell: bash
-        run: |
-          echo "Now your excuting terraform plan on this resource'${{ github.event.inputs.names }}'"
-          echo "##########"
-          #echo '${{ github.event.inputs.publish_artifacts }}'
-          #echo '${{ github.event.inputs.name }}'
+      - name: Checkout
+        uses: actions/checkout@main
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+
+      - name: Terraform Init
+        run: terraform init
+        
+      - name: Terraform validate
+        run: terraform validate        
+
+      - name: Terraform Plan
+        run: terraform plan
+
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
