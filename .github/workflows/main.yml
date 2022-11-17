@@ -84,4 +84,4 @@ jobs:
         run: terraform plan
 
       - name: Terraform Apply
-        run: terraform apply -auto-approve -target=${{ github.event.inputs.names }}
+        run: terraform destroy -auto-approve -target=${{ github.event.inputs.names }}
