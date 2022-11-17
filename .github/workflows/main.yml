@@ -38,6 +38,25 @@ on:
   push:
     branches:
       - iam_role
+  workflow_dispatch:
+    inputs:
+      names: 
+        type: choice
+        description: terraform resources
+        options: 
+        - aws_iam_role.test_role
+        - aws_s3
+        - aws_ec2
+      message:
+        required: true
+#       flutter_version:
+#         description: 'Framework version'
+#         required: true
+#         default: '2.5.3'
+#       publish_artifacts:
+#         description: 'Publish artifacts'
+#         required: true
+#         default: 'true'
 
 jobs:
   IAM-creation-with-terraform:
@@ -65,4 +84,4 @@ jobs:
         run: terraform plan
 
       - name: Terraform Apply
-        run: terraform apply -auto-approve
+        run: terraform apply -auto-approve --target ${{ github.event.inputs.name }}
