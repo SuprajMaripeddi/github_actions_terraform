@@ -44,3 +44,12 @@ resource "aws_iam_role_policy_attachment" "test-attach" {
 provider "aws" {
   region="us-east-1"
 }
+
+terraform {
+  backend "s3" {
+    bucket = "suprajgithub"
+    key    = "terraform.tfstate"
+    region = "us-east-1"
+  }
+}
+
