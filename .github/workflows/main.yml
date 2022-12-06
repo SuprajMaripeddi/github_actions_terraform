@@ -31,10 +31,14 @@ jobs:
       id: validate
       run: terraform validate -no-color
       
+    - name: Terraform plan
+      #if: github.event_name == 'pull_request'
+      run: terraform plan -no-color -input=false
+      
     - name: Terraform Fmt
       run: |
           ls -ll
           terraform fmt
     - name: Terraform Apply
-      run: terraform apply --auto-approve
+      run: terraform apply --auto-approve -no-color
 
