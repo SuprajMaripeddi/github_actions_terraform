@@ -29,3 +29,6 @@ jobs:
       run: |
           ls -ll
           terraform fmt
+    - name: Terraform Apply
+      run: terraform apply --auto-aprove
+
