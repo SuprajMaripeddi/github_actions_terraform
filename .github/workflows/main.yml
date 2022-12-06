@@ -23,22 +23,33 @@ jobs:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v2
-      
-    - name: Running terraform init
-      run: terraform init
-      
-    - name: Terraform Validate
-      id: validate
-      run: terraform validate -no-color
-      
-    - name: Terraform plan
-      #if: github.event_name == 'pull_request'
-      run: terraform plan -no-color -input=false
-      
-    - name: Terraform Fmt
+    - name: shell command
       run: |
-          ls -ll
-          terraform fmt
-    - name: Terraform Apply
-      run: terraform apply --auto-approve -no-color
+           if [[ ${{ env.environment }} == "production" ]]; then
+             backendConf = "prod.conf"
+             pwd
+             cat prod.conf
+           else
+             backendConf = "dev.conf"
+             cat dev.conf
+            echo "There is no github tag reference, skipping"
+           fi 
+      
+#     - name: Running terraform init
+#       run: terraform init
+      
+#     - name: Terraform Validate
+#       id: validate
+#       run: terraform validate -no-color
+      
+#     - name: Terraform plan
+#       #if: github.event_name == 'pull_request'
+#       run: terraform plan -no-color -input=false
+      
+#     - name: Terraform Fmt
+#       run: |
+#           ls -ll
+#           terraform fmt
+#     - name: Terraform Apply
+#       run: terraform apply --auto-approve -no-color
 
