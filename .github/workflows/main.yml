@@ -4,8 +4,8 @@ run-name: ${{ github.actor }} is testing terraform execution using GitHub Action
 on:
   push:
     branches:
-    - main
-  pull_request:
+    - aws
+ # pull_request:
 env:
   environment: production
  
