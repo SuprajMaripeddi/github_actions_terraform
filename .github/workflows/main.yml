@@ -26,11 +26,11 @@ jobs:
     - name: shell command
       run: |
            if [[ ${{ env.environment }} == "production" ]]; then
-             backendConf = "prod.conf"
+             backendConf="prod.conf"
              pwd
              cat prod.conf
            else
-             backendConf = "dev.conf"
+             backendConf="dev.conf"
              cat dev.conf
             echo "There is no github tag reference, skipping"
            fi 
