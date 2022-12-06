@@ -23,3 +23,7 @@ jobs:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v2
+    - name: 'Terraform Fmt'
+      uses: hashicorp/setup-terraform@v2
+      with:
+        tf_actions_subcommand: 'fmt'
