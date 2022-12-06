@@ -23,8 +23,14 @@ jobs:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v2
+      
     - name: Running terraform init
       run: terraform init
+      
+    - name: Terraform Validate
+      id: validate
+      run: terraform validate -no-color
+      
     - name: Terraform Fmt
       run: |
           ls -ll
