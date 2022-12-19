@@ -20,14 +20,14 @@ on:
 #         required: true
 #         default: 'true'
 
-# jobs:
-#   build_web:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Any Name Bash Test Step
-#         shell: bash
-#         run: |
-#           echo "Now your excuting terraform plan on this resource'${{ github.event.inputs.names }}'"
-#           echo "##########"
-#           #echo '${{ github.event.inputs.publish_artifacts }}'
-#           #echo '${{ github.event.inputs.name }}'
+jobs:
+  build_web:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Any Name Bash Test Step
+        shell: bash
+        run: |
+          echo "Now your excuting terraform plan on this resource'${{ github.event.inputs.names }}'"
+          echo "##########"
+          #echo '${{ github.event.inputs.publish_artifacts }}'
+          #echo '${{ github.event.inputs.name }}'
