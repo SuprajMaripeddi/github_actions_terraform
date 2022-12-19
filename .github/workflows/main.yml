@@ -1,33 +1,46 @@
-name: Flutter_Web_On_Demand
 
+name: 'Wokflow dispatch manual Trigger test'
+run-name: Testing terraform execution using GitHub Actions
 on:
   workflow_dispatch:
-#     inputs:
-#       names:
-#         type: choice
-#         description: Who to greet
-#         options: 
-#         - aws_ec2
-#         - aws_s3
-#       message:
-#         required: true
-#       flutter_version:
-#         description: 'Framework version'
-#         required: true
-#         default: '2.5.3'
-#       publish_artifacts:
-#         description: 'Publish artifacts'
-#         required: true
-#         default: 'true'
-
 jobs:
-  build_web:
+  testjob:
     runs-on: ubuntu-latest
+    name: 'Workflow dispatch test'
     steps:
-      - name: Any Name Bash Test Step
-        shell: bash
-        run: |
-          echo "Now your excuting terraform plan on this resource'${{ github.event.inputs.names }}'"
-          echo "##########"
-          #echo '${{ github.event.inputs.publish_artifacts }}'
-          #echo '${{ github.event.inputs.name }}'
+    - name: scdscasc
+      shell: bash
+      run: echo "Hello World!"
+# name: Flutter_Web_On_Demand
+
+# on:
+#   workflow_dispatch:
+# #     inputs:
+# #       names:
+# #         type: choice
+# #         description: Who to greet
+# #         options: 
+# #         - aws_ec2
+# #         - aws_s3
+# #       message:
+# #         required: true
+# #       flutter_version:
+# #         description: 'Framework version'
+# #         required: true
+# #         default: '2.5.3'
+# #       publish_artifacts:
+# #         description: 'Publish artifacts'
+# #         required: true
+# #         default: 'true'
+
+# jobs:
+#   build_web:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Any Name Bash Test Step
+#         shell: bash
+#         run: |
+#           echo "Now your excuting terraform plan on this resource'${{ github.event.inputs.names }}'"
+#           echo "##########"
+#           #echo '${{ github.event.inputs.publish_artifacts }}'
+#           #echo '${{ github.event.inputs.name }}'
