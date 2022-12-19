@@ -25,7 +25,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@main
       - name: if condition
-        if: ${{ github.event.inputs.names }} != ''
+        if: github.event.inputs.names == ''
         run: echo "test is passed"
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
