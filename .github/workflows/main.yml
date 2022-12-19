@@ -1,9 +1,6 @@
 name: "terraform-deploy of iam role with policy by using meta argument"
 
 on:
-  push:
-    branches:
-      - iam_role
   workflow_dispatch:
     inputs:
       names: 
