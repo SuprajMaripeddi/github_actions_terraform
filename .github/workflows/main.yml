@@ -1,6 +1,6 @@
 
-name: 'Wokflow dispatch manual Trigger test'
-run-name: Testing terraform execution using GitHub Actions
+name: 'Wokflow dispatch manual Trigger test new'
+run-name: Testing terraform execution using GitHub Actions new
 on:
   workflow_dispatch:
 jobs:
