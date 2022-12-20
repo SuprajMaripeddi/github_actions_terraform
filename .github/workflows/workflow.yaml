@@ -1,0 +1,13 @@
+
+name: 'Wokflow github'
+run-name: Testing github
+on:
+  workflow_dispatch:
+jobs:
+  testjob:
+    runs-on: ubuntu-latest
+    name: 'Workflow dispatch test'
+    steps:
+    - name: scdscasc
+      shell: bash
+      run: echo "Hello github!"
