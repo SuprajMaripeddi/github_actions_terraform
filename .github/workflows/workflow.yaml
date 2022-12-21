@@ -10,8 +10,7 @@ jobs:
       shell: bash
       run: |
             abc="hello"
-      env: 
-       abc: $abc
+            export abc
     - name: scdscasc
       shell: bash
       run: |
