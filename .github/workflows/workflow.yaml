@@ -9,7 +9,7 @@ jobs:
     - name: scdscasc
       run: |
             abc="hello"
-            export-p abc
+            export -p abc
     - name: scdscasc
       shell: bash
       run: |
