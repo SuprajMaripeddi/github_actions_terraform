@@ -14,7 +14,7 @@ jobs:
     - name: scdscasc
       shell: bash
       run: |
-            bbc=${abc}
+            bbc=${{ env.abc }}"
             echo $bbc
             
       
