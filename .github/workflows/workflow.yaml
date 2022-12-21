@@ -1,11 +1,6 @@
 name: 'Wokflow github'
 run-name: Testing github
-on:
-  workflow_dispatch:
-    inputs:
-      names: 
-        type: string
-        description: terraform resources
+on: push
 jobs:
   testjob:
     runs-on: ubuntu-latest
@@ -14,7 +9,11 @@ jobs:
     - name: scdscasc
       shell: bash
       run: |
-            abc=${{ github.event.inputs.names }}
-            echo $abc
+            abc="hello"
+    - name: scdscasc
+      shell: bash
+      run: |
+            bbc=${abc}
+            echo $bbc
             
       
