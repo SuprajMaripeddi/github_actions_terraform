@@ -4,7 +4,6 @@ jobs:
   testjob:
     runs-on: ubuntu-latest
     steps:
-      - name: scdscasc
       - name: Set environment variable
         shell: bash
         run: |
