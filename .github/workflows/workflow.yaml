@@ -11,10 +11,12 @@ jobs:
       run: |
             abc="hello"
             export abc
+            env
     - name: scdscasc
       shell: bash
       run: |
             bbc=${{ env.abc }}
+            env
             echo $bbc
             
       
