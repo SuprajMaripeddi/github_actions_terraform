@@ -6,17 +6,13 @@ jobs:
     runs-on: ubuntu-latest
     name: 'Workflow dispatch test'
     steps:
-    - name: Set environment variable
-      shell: bash
-      run: |
-       abc="hello"
-       export abc
-    - name: Print environment variable
-      shell: bash
-      run: |
-       env | grep abc
-       bbc=$abc
-       echo $bbc
+  # This will set the FOO environment variable within the
+  # first `run` script, then instruct GitHub Actions to make
+  # it available within subsequent `run` steps as well.
+    - run: |
+       export FOO=bar
+       echo "::set-env name=FOO::$FOO"
+    - run: echo $FOO
 
 
             
