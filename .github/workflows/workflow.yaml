@@ -7,11 +7,9 @@ jobs:
     name: 'Workflow dispatch test'
     steps:
     - name: scdscasc
-      shell: bash
       run: |
             abc="hello"
-            export abc
-            env
+            export-p abc
     - name: scdscasc
       shell: bash
       run: |
