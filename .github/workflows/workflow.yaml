@@ -1,19 +1,15 @@
-name: 'Wokflow github'
-run-name: Testing github
+name: 'Workflow dispatch test'
 on: push
 jobs:
   testjob:
     runs-on: ubuntu-latest
-    name: 'Workflow dispatch test'
     steps:
-  # This will set the FOO environment variable within the
-  # first `run` script, then instruct GitHub Actions to make
-  # it available within subsequent `run` steps as well.
-    - run: |
-       export FOO=bar
-       echo "::set-env name=FOO::$FOO"
-    - run: echo $FOO
-
-
-            
-      
+      - name: scdscasc
+      - name: Set environment variable
+        shell: bash
+        run: |
+              abc="hello"
+              export -p abc
+      - name: scdscasc
+         bbc=$abc
+         echo $bbc
