@@ -11,5 +11,6 @@ jobs:
               abc="hello"
               export -p abc
       - name: scdscasc
-         bbc=$abc
-         echo $bbc
+        run: |
+           bbc=$abc
+           echo $bbc
