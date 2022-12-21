@@ -14,8 +14,10 @@ jobs:
     - name: Print environment variable
       shell: bash
       run: |
+       env | grep abc
        bbc=$abc
        echo $bbc
+
 
             
       
