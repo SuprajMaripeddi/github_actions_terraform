@@ -12,15 +12,15 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - uses: trstringer/manual-approval@v1
-        with:
-          secret: ${{ github.TOKEN }}
-          approvers: SuprajMaripeddi
+#       - uses: trstringer/manual-approval@v1
+#         with:
+#           secret: ${{ github.TOKEN }}
+#           approvers: SuprajMaripeddi
       - name: Deploy to production
         run: echo deploying
       - name: Apply Terraform changes
         run: |
-            if timeout 1m sleep 30; then
+            if timeout 5m sleep 30; then
               echo "Terraform apply successful"
             else
               echo "Terraform apply failed or timed out"
