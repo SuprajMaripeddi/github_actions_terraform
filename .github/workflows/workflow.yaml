@@ -8,7 +8,7 @@ jobs:
     - name: Apply Terraform changes
       run: |
         # Set a timeout of 30 minutes for the terraform apply command
-        if timeout 1m sleep 120; then
+        if timeout 1m sleep 30; then
           echo "Terraform apply successful"
         else
           echo "Terraform apply failed or timed out"
