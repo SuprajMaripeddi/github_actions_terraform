@@ -7,6 +7,6 @@ inputs:
 outputs:
   myOutput:
     description: "A description of the output"
-runs:
-  using: "python3.8"
-  main: "main.py"
+# runs:
+#   using: "python3.8"
+#   main: "main.py"
