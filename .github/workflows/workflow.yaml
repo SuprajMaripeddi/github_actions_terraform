@@ -8,7 +8,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: |
-           ls -ll
+            pwd
+            ls -ll
     - name: Run action
       uses: ./.github/actions/action.yaml
       with:
