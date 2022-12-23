@@ -26,4 +26,3 @@ jobs:
               echo "Terraform apply failed or timed out"
               exit 1
             fi
-
