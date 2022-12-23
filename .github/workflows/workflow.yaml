@@ -11,7 +11,7 @@ jobs:
             pwd
             ls -ll
     - name: Run action
-      uses: ./.github/actions/action.yaml
+      uses: ./github/actions/action.yaml
       with:
         myInput: "Hello, world!"
 
