@@ -1,54 +1,28 @@
-name: Approval Workflow
-
-on: [push]
-
+name: main
+on: push
 jobs:
-  approval:
+  build:
+    name: build
     runs-on: ubuntu-latest
     steps:
-      - name: Read input and check for approval
-        run: |
-          read -p "Enter the value you want to approve: " value
-          if [[ $value == "approved_value_1" || $value == "approved_value_2" ]]; then
-            echo "Input approved, continuing with script"
-          else
-            echo "Error: Unapproved value entered"
-            exit 1
-          fi
+      - name: Build
+        run: echo building manual review
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: trstringer/manual-approval@v1
+        with:
+          secret: ${{ github.TOKEN }}
+          approvers: SuprajMaripeddi
       - name: Deploy to production
-        if: success()
+        run: echo deploying
+      - name: Apply Terraform changes
         run: |
-          echo "Deploying with approved value: $value"
-          deploy_script.sh $value
-
-
-
-
-# name: main
-# on: push
-# jobs:
-#   build:
-#     name: build
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Build
-#         run: echo building manual review
-#   deploy:
-#     name: deploy
-#     runs-on: ubuntu-latest
-#     needs: build
-#     steps:
-# #       - uses: trstringer/manual-approval@v1
-# #         with:
-# #           secret: ${{ github.TOKEN }}
-# #           approvers: SuprajMaripeddi
-#       - name: Deploy to production
-#         run: echo deploying
-#       - name: Apply Terraform changes
-#         run: |
-#             if timeout 5m sleep 30; then
-#               echo "Terraform apply successful"
-#             else
-#               echo "Terraform apply failed or timed out"
-#               exit 1
-#             fi
+            if timeout 5m sleep 30; then
+              echo "Terraform apply successful"
+            else
+              echo "Terraform apply failed or timed out"
+              exit 1
+            fi
