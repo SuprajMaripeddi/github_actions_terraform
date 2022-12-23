@@ -11,7 +11,7 @@ jobs:
             pwd
             ls -ll
     - name: Run action
-      uses: ./github/actions/
+      uses: ./.github/actions/my-action
       with:
         myInput: "Hello, world!"
 
