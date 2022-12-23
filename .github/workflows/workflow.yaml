@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build
-        run: echo building manual review
+        run: echo building manual review deny
   deploy:
     name: deploy
     runs-on: ubuntu-latest
