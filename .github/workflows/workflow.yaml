@@ -15,7 +15,7 @@ jobs:
       - uses: trstringer/manual-approval@v1
         with:
           secret: ${{ github.TOKEN }}
-          approvers: trstringer,acdunnigan
+          approvers: SuprajMaripeddi
       - name: Deploy to production
         run: echo deploying
       - name: Apply Terraform changes
