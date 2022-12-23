@@ -8,5 +8,5 @@ outputs:
   myOutput:
     description: "A description of the output"
 runs:
-  using: "node12"
-  main: "index.js"
+  using: "python3.9"
+  main: "main.py"
