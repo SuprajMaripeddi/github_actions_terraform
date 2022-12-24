@@ -17,7 +17,7 @@ jobs:
         ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       run: |
           hello="AWS-GCP"
-          ::set-env name=MY_VAR::${hello}
+          set-env name=MY_VAR::${hello}
 
     # Use the environment variable in a later step
     - name: Use environment variable
