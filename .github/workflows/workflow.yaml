@@ -33,6 +33,10 @@ jobs:
               json.dump(configuration, json_file)
           output = json.dumps(json.load(open('sample.json')), indent=2)
           EOF
+    - name: Coverting Optum yaml to JSON new
+      run: |
+          pwd
+          ls
           python convert.py
           data=$(cat sample.json | jq -r '.') 
           echo $data
