@@ -13,6 +13,8 @@ jobs:
     steps:
     # Set the environment variable in a step
     - name: Set environment variable
+      env:
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       run: echo "::set-env name=MY_VAR::some value"
 
     # Use the environment variable in a later step
