@@ -15,6 +15,10 @@ jobs:
       env:
         MY_VAR: some value
       run: echo "The value of MY_VAR is $MY_VAR"
+    - name: Set environment variable
+#       env:
+#         MY_VAR: some value
+      run: echo "The value of MY_VAR is $MY_VAR"
 
 #       - uses: trstringer/manual-approval@v1
 #         with:
