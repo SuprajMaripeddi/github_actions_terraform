@@ -13,6 +13,11 @@ jobs:
       run: |
           hello="AWS"
           echo "::set-env name=MY_VAR::${hello}"
+    - name: Set environment variable new
+      run: |
+            echo $MY_VAR
+            echo "#############"
+
     - name: Coverting Optum yaml to JSON
       # env:
       #     ACTIONS_ALLOW_UNSECURE_COMMANDS: true
