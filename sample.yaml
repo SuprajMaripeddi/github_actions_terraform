@@ -1,0 +1,10 @@
+reporting: 
+  stored_procs: 
+    - 
+      name: reportingsp
+      uses: 
+        usedin: breadcrumb
+    - 
+      name: secondProc
+      uses: 
+        usedin: something_else
