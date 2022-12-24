@@ -11,14 +11,22 @@ jobs:
     name: deploy
     runs-on: ubuntu-latest
     steps:
+    # Set the environment variable in a step
     - name: Set environment variable
-      env:
-        MY_VAR: some value
+      run: echo "::set-env name=MY_VAR::some value"
+
+    # Use the environment variable in a later step
+    - name: Use environment variable
       run: echo "The value of MY_VAR is $MY_VAR"
-    - name: Set environment variable
+
+#     - name: Set environment variable
 #       env:
 #         MY_VAR: some value
-      run: echo "The value of MY_VAR is $MY_VAR"
+#       run: echo "The value of MY_VAR is $MY_VAR"
+#     - name: Set environment variable
+# #       env:
+# #         MY_VAR: some value
+#       run: echo "The value of MY_VAR is $MY_VAR"
 
 #       - uses: trstringer/manual-approval@v1
 #         with:
