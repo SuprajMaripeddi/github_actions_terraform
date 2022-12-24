@@ -35,5 +35,6 @@ jobs:
           EOF
           python convert.py
           data=$(cat sample.json | jq -r '.') 
+          echo $data
           echo "::set-env name=JSON_DATA::${data}"
           echo $JSON_DATA
