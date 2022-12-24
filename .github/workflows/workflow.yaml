@@ -12,15 +12,13 @@ jobs:
     - name: Set environment variable
       run: |
           hello="AWS"
-          echo "::set-env name=MY_VAR::${hello}"
+          echo "::set-env name=MY_VAR::${hello}" /dev/null 2>&1
     - name: Set environment variable new
       run: |
             echo $MY_VAR
             echo "#############"
 
     - name: Coverting Optum yaml to JSON
-      # env:
-      #     ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       run: |
           pip install pyyaml
           cat <<EOF >convert.py
@@ -35,10 +33,7 @@ jobs:
           EOF
     - name: Coverting Optum yaml to JSON new
       run: |
-          pwd
-          ls
           python convert.py
           data=$(cat sample.json | jq -r '.') 
           echo $data
-          echo "::set-env name=JSON_DATA::${data}"
-          echo $JSON_DATA
+
