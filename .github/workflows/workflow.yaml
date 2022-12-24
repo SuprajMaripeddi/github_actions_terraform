@@ -6,6 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # Set the environment variable in a step
+    - uses: actions/checkout@v3
     - name: Set environment variable
       env:
         ACTIONS_ALLOW_UNSECURE_COMMANDS: true
