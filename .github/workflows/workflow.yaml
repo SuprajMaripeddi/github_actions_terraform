@@ -1,16 +1,15 @@
 name: main
 on: push
 jobs:
-  build:
-    name: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Build
-        run: echo building manual review deny
+#   build:
+#     name: build
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Build
+#         run: echo building manual review deny
   deploy:
     name: deploy
     runs-on: ubuntu-latest
-    needs: build
     steps:
     - name: Set environment variable
       env:
