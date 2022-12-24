@@ -15,7 +15,9 @@ jobs:
     - name: Set environment variable
       env:
         ACTIONS_ALLOW_UNSECURE_COMMANDS: true
-      run: echo "::set-env name=MY_VAR::some value"
+      run: |
+          hello="AWS"
+          echo "::set-env name=MY_VAR::${hello}"
 
     # Use the environment variable in a later step
     - name: Use environment variable
