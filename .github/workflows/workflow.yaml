@@ -16,3 +16,22 @@ jobs:
     # Use the environment variable in a later step
     - name: Use environment variable
       run: echo "The value of MY_VAR is $MY_VAR"
+    - name: Coverting Optum yaml to JSON
+      # env:
+      #     ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+      run: |
+          pip install pyyaml
+          cat <<EOF >convert.py
+          #!/usr/bin/env python3
+          import yaml
+          import json
+          with open('sample.yaml', 'r') as file:
+              configuration = yaml.safe_load(file)
+          with open('sample.json', 'w') as json_file:
+              json.dump(configuration, json_file)
+          output = json.dumps(json.load(open('sample.json')), indent=2)
+          EOF
+          python convert.py
+          data=$(cat sample.json | jq -r '.') 
+          echo "::set-env name=JSON_DATA::${data}"
+          echo $JSON_DATA
