@@ -1,45 +1,25 @@
-name: My Workflow
-
+name: main
 on: push
-
 jobs:
   build:
+    name: build
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - run: |
-            pwd
-            ls -ll
-    - name: Run action
-      uses: ./.github/actions/my-action
-      with:
-        myInput: "Hello, world!"
+      - name: Build
+        run: echo building manual review deny
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - name: Set environment variable
+      env:
+        MY_VAR: some value
+      run: echo "The value of MY_VAR is $MY_VAR"
 
-# name: main
-# on: push
-# jobs:
-#   build:
-#     name: build
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Build
-#         run: echo building manual review deny
-#   deploy:
-#     name: deploy
-#     runs-on: ubuntu-latest
-#     needs: build
-#     steps:
 #       - uses: trstringer/manual-approval@v1
 #         with:
 #           secret: ${{ github.TOKEN }}
 #           approvers: SuprajMaripeddi
 #       - name: Deploy to production
 #         run: echo deploying
-#       - name: Apply Terraform changes
-#         run: |
-#             if timeout 5m sleep 30; then
-#               echo "Terraform apply successful"
-#             else
-#               echo "Terraform apply failed or timed out"
-#               exit 1
-#             fi
