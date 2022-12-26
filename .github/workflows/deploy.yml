@@ -16,7 +16,7 @@ jobs:
       - name: Deploy code
         run: |
           if [ "${{ inputs.environment }}" = "production" ]; then
-            make deploy-prod
+            echo input is  production
           else
-            make deploy-dev
+            echo input is not  production 
           fi
