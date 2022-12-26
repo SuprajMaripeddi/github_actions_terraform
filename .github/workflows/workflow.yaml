@@ -1,39 +1,57 @@
-name: main
-on: push
+name: Build and push Docker image
+on: [push]
 jobs:
-  deploy:
-    name: deploy
+  build:
     runs-on: ubuntu-latest
-    env:
-      ACTIONS_ALLOW_UNSECURE_COMMANDS: true    
     steps:
-    # Set the environment variable in a step
-    - uses: actions/checkout@v3
-    - name: Set environment variable
-      run: |
-          hello="AWS"
-          echo "::set-env name=MY_VAR::${hello}" /dev/null 2>&1
-    - name: Set environment variable new
-      run: |
-            echo $MY_VAR
-            echo "#############"
+      - uses: actions/checkout@v2
+      - name: Build Docker image
+        run: docker build -t my-image .
+      - name: Docker login
+        uses: ./docker-login.yml
+        with:
+          DOCKER_USERNAME: supraj
+          DOCKER_PASSWORD: Supraj@123
+          DOCKER_REGISTRY: https://registry.hub.docker.com
+      - name: Push Docker image
+        run: docker push my-image
 
-    - name: Coverting Optum yaml to JSON
-      run: |
-          pip install pyyaml
-          cat <<EOF >convert.py
-          #!/usr/bin/env python3
-          import yaml
-          import json
-          with open('sample.yaml', 'r') as file:
-              configuration = yaml.safe_load(file)
-          with open('sample.json', 'w') as json_file:
-              json.dump(configuration, json_file)
-          output = json.dumps(json.load(open('sample.json')), indent=2)
-          EOF
-    - name: Coverting Optum yaml to JSON new
-      run: |
-          python convert.py
-          data=$(cat sample.json | jq -r '.') 
-          echo $data
+# name: main
+# on: push
+# jobs:
+#   deploy:
+#     name: deploy
+#     runs-on: ubuntu-latest
+#     env:
+#       ACTIONS_ALLOW_UNSECURE_COMMANDS: true    
+#     steps:
+#     # Set the environment variable in a step
+#     - uses: actions/checkout@v3
+#     - name: Set environment variable
+#       run: |
+#           hello="AWS"
+#           echo "::set-env name=MY_VAR::${hello}" /dev/null 2>&1
+#     - name: Set environment variable new
+#       run: |
+#             echo $MY_VAR
+#             echo "#############"
+
+#     - name: Coverting Optum yaml to JSON
+#       run: |
+#           pip install pyyaml
+#           cat <<EOF >convert.py
+#           #!/usr/bin/env python3
+#           import yaml
+#           import json
+#           with open('sample.yaml', 'r') as file:
+#               configuration = yaml.safe_load(file)
+#           with open('sample.json', 'w') as json_file:
+#               json.dump(configuration, json_file)
+#           output = json.dumps(json.load(open('sample.json')), indent=2)
+#           EOF
+#     - name: Coverting Optum yaml to JSON new
+#       run: |
+#           python convert.py
+#           data=$(cat sample.json | jq -r '.') 
+#           echo $data
 
