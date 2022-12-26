@@ -8,7 +8,7 @@ jobs:
   call-workflow-2-in-local-repo:
     uses: ./.github/workflows/deploy.yml
     with:
-      environment: production
+      environment: dummy
   build:
     runs-on: ubuntu-latest
     steps:
