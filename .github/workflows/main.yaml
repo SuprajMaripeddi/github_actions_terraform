@@ -5,12 +5,16 @@ name: Main Workflow
 on: [push]
 
 jobs:
+  call-workflow-2-in-local-repo:
+    uses: ./.github/workflows/deploy.yml
+    with:
+      environment: production
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
-      - name: Deploy code
-        uses: ./.github/workflows/deploy.yml
-        with:
-          environment: production
+#       - name: Deploy code
+#         uses: ./.github/workflows/deploy.yml
+#         with:
+#           environment: production
