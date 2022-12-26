@@ -10,10 +10,6 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
-      - name: Build code
-        run: make build
-      - name: Test code
-        run: make test
       - name: Deploy code
         uses: ./.github/workflows/deploy.yml
         with:
