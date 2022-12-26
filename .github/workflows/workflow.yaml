@@ -12,7 +12,7 @@ jobs:
               pwd
               ls
       - name: Docker login
-        uses: ./docker-login.yml
+        uses: ./.github/workflows/docker-login.yml
         with:
           DOCKER_USERNAME: supraj
           DOCKER_PASSWORD: Supraj@123
