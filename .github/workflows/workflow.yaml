@@ -8,6 +8,10 @@ jobs:
       - name: Build Docker image
         run: docker build -t my-image .
       - name: Docker login
+        run: |
+              pwd
+              ls
+      - name: Docker login
         uses: ./docker-login.yml
         with:
           DOCKER_USERNAME: supraj
