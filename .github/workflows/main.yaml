@@ -15,6 +15,11 @@ jobs:
       tfVersion:  1.3.0
   build:
     runs-on: ubuntu-latest
+    needs:  call-workflow-2-in-local-repo
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
+      - name: run verison command
+        run: |
+              echo "priniting tf vesion"
+              echo ${{ needs.call-workflow-2-in-local-repo.outputs.terraformVersion }}
