@@ -12,13 +12,9 @@ jobs:
   call-workflow-2-in-other-repo:
     uses: SuprajMaripeddi/terraform-github-actions/.github/workflows/deploy.yml@AWS
     with:
-      environment: prodcusfisoadss
+      tfVersion: prodcusfisoadss
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
-#       - name: Deploy code
-#         uses: ./.github/workflows/deploy.yml
-#         with:
-#           environment: production
