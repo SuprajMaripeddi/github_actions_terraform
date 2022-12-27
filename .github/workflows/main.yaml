@@ -9,6 +9,10 @@ jobs:
     uses: ./.github/workflows/deploy.yml
     with:
       environment: dummy
+  call-workflow-2-in-other-repo:
+    uses: SuprajMaripeddi/terraform-github-actions/AWS/.github/workflows/deploy.yml@AWS
+    with:
+      environment: prodcusfisoadss
   build:
     runs-on: ubuntu-latest
     steps:
