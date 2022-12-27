@@ -5,7 +5,7 @@ name: Deploy Workflow
 on:
   workflow_call:
     inputs:
-      environment:
+      tfVersion :
         required: true
         type: string
 
@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: Deploy code
         run: |
-          if [ "${{ inputs.environment }}" = "production" ]; then
+          if [ "${{ inputs.tfVersion  }}" = "production" ]; then
             echo input is  production
           else
             echo input is not  production 
