@@ -10,8 +10,8 @@ jobs:
 #     with:
 #       tfVersion: 1.3.0
   call-workflow-2-in-other-repo:
-    uses: SuprajMaripeddi/terraform-github-actions/.github/workflows/deploy.yml@AWS
-    #uses: SuprajMaripeddi/DevOps/.github/workflows/deploy.yml@supraj
+    #uses: SuprajMaripeddi/terraform-github-actions/.github/workflows/deploy.yml@AWS
+    uses: SuprajMaripeddi/DevOps/.github/workflows/deploy.yml@supraj
     with:
       tfVersion:  1.3.0
   build:
