@@ -2,7 +2,7 @@ name: My Workflow
 on: 
   workflow_dispatch:
     inputs:
-      file:
+      filename:
         required: true
 jobs:
   build:
