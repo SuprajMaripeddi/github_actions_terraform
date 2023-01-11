@@ -15,7 +15,6 @@ jobs:
         with:
           python-version: 3.x
       - run : curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
-      - run: pre-commit autoupdate
       - uses: pre-commit/action@v3.0.0
       - run: pre-commit autoupdate
       - uses: pre-commit-ci/lite-action@v1.0.0
