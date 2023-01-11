@@ -5,8 +5,8 @@ repos:
           - id: terraform_fmt
           - id: terraform_validate
           - id: terraform_tflint
-            args:            
-               - --args=--config=.tflint.hcl
+#             args:            
+#                - --args=--config=.tflint.hcl
                #- --args=--enable-rule=aws_resource_missing_tags
 
 #     - repo: https://github.com/pre-commit/pre-commit-hooks
