@@ -6,7 +6,7 @@ repos:
           - id: terraform_validate
           - id: terraform_tflint
             args:            
-               - --args=--config=${CONFIG_NAME}.${CONFIG_EXT}
+               - --args=--config=./.tflint.hcl
                - --args=--module
 #     - repo: https://github.com/pre-commit/pre-commit-hooks
 #       rev: v4.1.0
