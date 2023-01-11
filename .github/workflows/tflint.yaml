@@ -18,5 +18,6 @@ jobs:
             curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
             ls 
             pwd
+            export CONFIG_NAME=.tflint; export CONFIG_EXT=hcl
             pre-commit run -a
 
