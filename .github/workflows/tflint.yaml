@@ -13,6 +13,7 @@ jobs:
     - uses: actions/setup-python@v4
       with:
         python-version: 3.x
-#     - uses: pre-commit/action@v3.0.0
-    - uses: pre-commit-ci/lite-action@v1.0.0
-      if: always()
+    - run: |
+            pip install pre-commit
+            curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
+
