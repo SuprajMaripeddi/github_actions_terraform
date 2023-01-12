@@ -29,15 +29,3 @@ jobs:
         run: echo "test is passed"
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
-
-#       - name: Terraform Init
-#         run: terraform init
-        
-#       - name: Terraform validate
-#         run: terraform validate        
-
-#       - name: Terraform Plan
-#         run: terraform plan
-
-#       - name: Terraform Apply
-#         run: terraform apply -auto-approve -target=${{ github.event.inputs.names }}
