@@ -6,7 +6,7 @@ pipeline {
       steps {
         // Checkout your source code repository
         // For example, with Git:
-       git branch: 'master',
+       git branch: 'main',
         credentialsId: 'supraj-github-creds',
         url: 'https://github.com/SuprajMaripeddi/github_actions_terraform.git'
       }
