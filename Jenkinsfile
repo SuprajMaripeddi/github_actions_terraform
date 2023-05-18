@@ -1,6 +1,9 @@
 pipeline {
   agent any
-
+  environment {
+    AWS_ACCESS_KEY_ID = credentials('aws-access-key')
+    AWS_SECRET_ACCESS_KEY = credentials('aws-access-key')
+  }
   stages {
     stage('Checkout') {
       steps {
@@ -15,15 +18,10 @@ pipeline {
     stage('Install and configure Terraform') {
       steps {
         // Configure AWS credentials
-        withCredentials([
-          awsAccessKey(credentialsId: 'AWS-Creds', variable: 'AWS_ACCESS_KEY_ID'),
-          awsSecretKey(credentialsId: 'AWS-Creds', variable: 'AWS_SECRET_ACCESS_KEY')
-        ]) {
           // Use the credentials in Terraform commands
           sh 'terraform init'
           sh 'terraform plan'
-        //   sh 'terraform apply'
-        }
+        //   sh 'terraform apply
       }
     }
   }
