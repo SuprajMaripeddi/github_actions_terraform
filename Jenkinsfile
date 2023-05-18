@@ -19,8 +19,11 @@ pipeline {
       steps {
         // Configure AWS credentials
           // Use the credentials in Terraform commands
-          sh 'terraform init'
-          sh 'terraform plan'
+          sh ''' 
+          cd s3
+          terraform init
+          terraform plan
+          '''
         //   sh 'terraform apply
       }
     }
