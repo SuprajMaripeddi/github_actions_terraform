@@ -2,7 +2,7 @@ ARG JDK_VERSION=13
 FROM adoptopenjdk/openjdk12
 ARG SERVICE_PORT="8080"
 ENV WORKDIR=/workspaces/tlx-ui
-RUN echo "supraj"
+RUN echo "m supraj"
 RUN yum -y install https://packages.endpointdev.com/rhel/7/os/x86_64/endpoint-repo-1.9-1.x86_64.rpm \
   && sed -i 's/endpoint.com/endpointdev.com/g' /etc/yum.repos.d/endpoint.repo
 RUN yum install git python3 jq -y && pip3 install awscli && git --version && java -version && python3 -V && aws --version
