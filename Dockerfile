@@ -1,4 +1,4 @@
-ARG JDK_VERSION=12
+ARG JDK_VERSION=13
 FROM adoptopenjdk/openjdk12
 ARG SERVICE_PORT="8080"
 ENV WORKDIR=/workspaces/tlx-ui
