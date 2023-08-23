@@ -21,7 +21,7 @@ pipeline {
           // Use the credentials in Terraform commands
           sh 'pwd'
           sh 'whoami'
-          sh ''' 
+          sh '''
           cd s3
           terraform init
           terraform plan

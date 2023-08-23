@@ -12,5 +12,5 @@ RUN npm install -g semantic-release @semantic-release/changelog @semantic-releas
 RUN curl -sL https://dl.yarnpkg.com/rpm/yarn.repo -o /etc/yum.repos.d/yarn.repo
 RUN yum install -y yarn wget gtk2-devel gtk3-devel libnotify-devel GConf2 nss libXScrnSaver alsa-lib
 #RUN wget http://vault.centos.org/6.2/os/x86_64/Packages/xorg-x11-server-Xvfb-1.10.4-6.el6.x86_64.rpm && yum -y localinstall xorg-x11-server-Xvfb-1.10.4-6.el6.x86_64.rpm
-#RUN yum -y update && npm config -g set user $(whoami) && npm config set timeout 6000000 && npm install -g "cypress@9.7.0"   && cypress verify && cypress version && ls -la /root   && chmod 755 /root  && node -p 'module.paths' && echo  " node version:    $(node -v) \n"     "npm version:     $(npm -v) \n" 
+#RUN yum -y update && npm config -g set user $(whoami) && npm config set timeout 6000000 && npm install -g "cypress@9.7.0"   && cypress verify && cypress version && ls -la /root   && chmod 755 /root  && node -p 'module.paths' && echo  " node version:    $(node -v) \n"     "npm version:     $(npm -v) \n"
 CMD tail -f /dev/null
