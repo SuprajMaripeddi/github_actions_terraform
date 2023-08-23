@@ -19,8 +19,6 @@ pipeline {
       steps {
         // Configure AWS credentials
           // Use the credentials in Terraform commands
-          sh 'pwd'
-          sh 'whoami'
           sh '''
           cd s3
           terraform init
