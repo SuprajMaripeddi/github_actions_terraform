@@ -1,4 +1,4 @@
-name: hello-world
+name:   hello-world
 on: push
 jobs:
   my-job:
@@ -6,3 +6,4 @@ jobs:
     steps:
       - name: my-step
         run: echo "Hello World!"
+
